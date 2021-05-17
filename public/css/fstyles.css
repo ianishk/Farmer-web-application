@@ -1,0 +1,95 @@
+
+body{
+  min-height: 100vh;
+  background: #A1FFCE;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FAFFD1, #A1FFCE);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FAFFD1, #A1FFCE);
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+}
+.mbody {
+  padding-left: 200px;
+  padding-right: 200px;
+}
+h2 {
+  text-align: center;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.query {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.post {
+
+  margin-left: 25px;
+  margin-right: auto;
+}
+
+.profile
+{
+  background-color: white;
+  margin: auto;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 50px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.requirements
+{
+  background-color: white;
+  margin: auto;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 50px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.history
+{
+  background-color: white;
+  margin: auto;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 50px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.queries
+{
+  background-color: white;
+  margin: auto;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 50px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.tab, .t
+{
+  border: 0;
+}
+.tab
+{
+  border-collapse:collapse;
+  width: 200px;
+}
+.query {
+  background-color: white;
+  margin: auto;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 50px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+table {
+    border-collapse: collapse;
+    width: 80%;
+    border: 1px solid #333;
+}
+
+table td{
+    border: 1px solid #333;
+}

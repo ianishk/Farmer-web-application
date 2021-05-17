@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    table,
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/fstyles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">Farmer Web application</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="signup.html">Login<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="signup.html">Contact <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="signup.html">News <span class="sr-only">(current)</span></a>
+        </li>
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div class="mbody">
+    <div class="header">
+      <br>
+      <br>
+    </div>
+    <div class="profile">
+      <h2>Farmer's Profile</h2>
+      <table class="tab">
+        <tr>
+          <td class="t"><b>Name:</b></td>
+          <td class="t"><%=dfarmer.fname%></td>
+        </tr>
+        <tr>
+          <td class="t"><b>Phone no:</b></td>
+          <td class="t"><%=dfarmer.mobile%></td>
+        </tr>
+      </table>
+    </div>
+    <div class="requirements">
+      <h2>Requirements: </h2><br>
+      <table class="center">
+        <tr>
+          <th>s.no</th>
+          <th>buyer name</th>
+          <th>mobile number</th>
+          <th>requirement</th>
+          <th>quantity</th>
+          <th>description</th>
+          <th>request</th>
+        </tr>
+        <% for(var i=requirement.length-1; i>=0; i--){ %>
+        <tr>
+          <td><%= requirement.length-i %></td>
+          <td><%= requirement[i].sname %></td>
+          <td><%= requirement[i].mobile%></td>
+          <td><%= requirement[i].requirement %></td>
+          <td><%= requirement[i].quantity %></td>
+          <td><%= requirement[i].description %></td>
+          <td>
+            <form action="/request" method="post">
+              <input type="hidden" name="fname" value=<%= dfarmer.fname %>>
+              <input type="hidden" name="mobile" value=<%= dfarmer.mobile%> <input type="hidden" name="sname" value=<%= requirement[i].sname %>>
+              <input type="hidden" name="requirement" value=<%=  requirement[i].requirement %>>
+              <input type="hidden" name="quantity" value=<%= requirement[i].quantity%>>
+              <button type="submit" class="btn btn-outline-success">request</button>
+            </form>
+          </td>
+        </tr>
+        <% } %>
+      </table>
+    </div>
+    <div class="history">
+      <h2>Delivery history</h2><br>
+      <table class="center">
+        <tr>
+          <th>s.no</th>
+          <th>seller name</th>
+          <th>requirement</th>
+          <th>quantity</th>
+          <th>date</th>
+        </tr>
+        <% for(var i=accept.length-1; i>=0; i--){%>
+        <tr>
+          <td><%=accept.length-i%></td>
+          <td><%= accept[i].sname%></td>
+          <td><%= accept[i].requirement %></td>
+          <td><%= accept[i].quantity %></td>
+          <td><%= accept[i].date %></td>
+        </tr>
+        <%}%>
+        </table>
+    </div>
+  <%# queries finished %>
+        <div class="queries">
+          <h2>Queries</h2>
+          <form class="" action="/queries" method="post">
+            <textarea name="query" rows="8" cols="80" class="query"></textarea>
+            <input type="hidden" name="name" value=<%=dfarmer.fname%>></input>
+            <input type="hidden" name="type" value="farmer"></input>
+            <button type="submit" class="post btn btn-lg btn-outline-success">post</button><br>
+          </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
